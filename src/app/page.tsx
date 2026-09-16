@@ -1,62 +1,32 @@
-import { Badge, Button, Container, Progress, Section, Surface } from "@/components/ui";
-
-const subjects = [
-  { name: "Mathematics", detail: "Algebraic foundations", color: "bg-sky-500", progress: 72 },
-  { name: "Science", detail: "Forces and motion", color: "bg-leaf-600", progress: 48 },
-  { name: "Languages", detail: "Reading and response", color: "bg-coral-500", progress: 61 },
-];
+import { Badge, Button, Container } from "@/components/ui";
+import { Wordmark } from "@/components/brand/wordmark";
+import { LearningPath } from "@/components/visuals/learning-path";
 
 export default function Home() {
   return <main className="overflow-hidden">
-    <header className="border-b border-ink-950/10 bg-paper/80">
-      <Container className="flex h-18 items-center justify-between">
-        <a href="#top" className="font-display text-2xl font-semibold tracking-tight">Learning Minds<span className="text-coral-500">.</span></a>
-        <nav aria-label="Primary navigation" className="flex items-center gap-1 sm:gap-3">
-          <Button href="/login" variant="quiet" className="hidden sm:inline-flex">Log in</Button>
-          <Button href="/signup">Start learning</Button>
-        </nav>
-      </Container>
+    <header className="relative z-20 border-b border-ink-950/10 bg-paper/90 backdrop-blur">
+      <Container className="flex h-18 items-center justify-between"><Wordmark /><nav aria-label="Primary navigation" className="flex items-center gap-2"><Button href="/login" variant="quiet" className="hidden sm:inline-flex">Log in</Button><Button href="/signup">Start learning <span aria-hidden className="ml-2">→</span></Button></nav></Container>
     </header>
 
-    <Section id="top" className="relative pb-20 sm:pb-28">
-      <div aria-hidden className="absolute -top-28 right-[-9rem] size-80 rounded-full border-[3rem] border-sun-100 opacity-70 sm:right-[-4rem] sm:size-120" />
-      <Container className="relative grid items-center gap-14 lg:grid-cols-[1.06fr_.94fr] lg:gap-20">
-        <div>
-          <Badge>Built for curious minds</Badge>
-          <h1 className="mt-7 max-w-3xl font-display text-5xl leading-[.98] font-medium tracking-[-0.035em] text-balance sm:text-6xl lg:text-7xl">Every learner deserves a clear way forward.</h1>
-          <p className="mt-7 max-w-xl text-lg leading-8 text-ink-700">One thoughtful place to learn, practise, and understand progress—designed for students and the teachers who guide them.</p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <Button href="/signup" className="sm:min-w-38">Start learning</Button>
-            <Button href="#preview" variant="secondary" className="sm:min-w-38">See the preview</Button>
-          </div>
-          <p className="mt-5 text-sm text-ink-500">A personal learning space, shaped around you.</p>
-        </div>
+    <section id="top" className="diagram-grid relative py-14 sm:py-20 lg:min-h-[760px] lg:py-24">
+      <div aria-hidden className="absolute -top-64 right-[-14rem] size-[44rem] rounded-full border border-leaf-700/10" />
+      <div aria-hidden className="absolute -top-44 right-[-6rem] size-[30rem] rounded-full border border-sun-500/25" />
+      <Container className="relative grid items-center gap-14 lg:grid-cols-[.9fr_1.1fr] lg:gap-16">
+        <div><Badge className="normal-case tracking-normal">A learning system built around you</Badge><h1 className="mt-7 max-w-2xl font-display text-5xl leading-[.94] font-medium tracking-[-.045em] text-balance sm:text-6xl lg:text-[5rem]">Learning that knows where you’re going.</h1><p className="mt-7 max-w-lg text-lg leading-8 text-ink-700">Understand what matters, follow a clear path and build lasting confidence—from first lesson to exam day.</p><div className="mt-9 flex flex-col gap-3 sm:flex-row"><Button href="/signup" className="sm:min-w-40">Start learning <span aria-hidden className="ml-2">→</span></Button><Button href="#explore" variant="secondary" className="sm:min-w-48">Explore Learning Minds</Button></div><ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm font-semibold text-ink-500">{["National curriculum", "Exam preparation", "Adaptive learning"].map(item => <li key={item} className="flex items-center gap-2"><span className="size-1.5 rounded-full bg-leaf-600" />{item}</li>)}</ul></div>
 
-        <Surface className="relative p-4 sm:p-6" aria-label="Product preview">
-          <div className="mb-6 flex items-center justify-between border-b border-ink-950/10 pb-4">
-            <div><p className="text-xs font-bold tracking-wider text-ink-500 uppercase">A space of your own</p><p className="mt-1 font-display text-2xl font-semibold">Learning with direction</p></div>
-            <div className="grid size-10 place-items-center rounded-full bg-sun-100 font-bold text-ink-950" aria-hidden>LM</div>
-          </div>
-          <div className="grid gap-3">
-            {subjects.map((subject, index) => <div key={subject.name} className="grid grid-cols-[auto_1fr] gap-4 rounded-md border border-ink-950/10 bg-white p-4">
-              <span className={`mt-1 size-3 rounded-full ${subject.color}`} aria-hidden />
-              <div><div className="flex items-start justify-between gap-4"><div><h2 className="font-bold">{subject.name}</h2><p className="text-sm text-ink-500">{subject.detail}</p></div><span className="font-display text-xl text-ink-500">0{index + 1}</span></div><div className="mt-4"><Progress value={subject.progress} label="Topic progress" /></div></div>
-            </div>)}
-          </div>
-        </Surface>
-      </Container>
-    </Section>
-
-    <Section id="preview" className="bg-ink-950 text-paper">
-      <Container className="grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
-        <div><p className="text-xs font-bold tracking-[.18em] text-sun-500 uppercase">A connected journey</p><h2 className="mt-4 font-display text-4xl leading-tight font-medium sm:text-5xl">Quiet focus. Joyful discovery. One learning story.</h2></div>
-        <div className="grid gap-px overflow-hidden rounded-lg bg-white/15 sm:grid-cols-2">
-          <article className="bg-ink-950 p-7 sm:p-9"><span className="text-3xl" aria-hidden>✦</span><h3 className="mt-8 font-display text-2xl">Revision mode</h3><p className="mt-3 leading-7 text-paper/65">A calm, considered space for focused study and meaningful practice.</p></article>
-          <article className="bg-ink-950 p-7 sm:p-9"><span className="text-3xl text-sun-500" aria-hidden>●</span><h3 className="mt-8 font-display text-2xl">Learning mode</h3><p className="mt-3 leading-7 text-paper/65">A playful path that makes building knowledge feel rewarding.</p></article>
+        <div className="relative mx-auto min-h-[420px] w-full max-w-2xl sm:min-h-[510px]" aria-label="Learning journey preview">
+          <div className="absolute inset-x-0 top-8 rounded-lg border border-ink-950/12 bg-paper p-5 shadow-lifted sm:inset-x-10 sm:p-7"><div className="flex items-start justify-between gap-4"><div><p className="text-xs font-bold text-leaf-700">Current learning journey</p><h2 className="mt-2 text-xl font-bold sm:text-2xl">Quadratic equations</h2><p className="mt-1 text-sm text-ink-500">Mathematics · Algebra</p></div><span className="grid size-12 place-items-center rounded-full border-4 border-leaf-100 text-xs font-bold">72%</span></div><LearningPath className="mt-2 w-full" /><div className="flex items-center justify-between border-t border-ink-950/10 pt-4"><span className="text-sm text-ink-500">3 of 5 concepts connected</span><span className="text-sm font-bold text-leaf-700">Continue →</span></div></div>
+          <div className="absolute bottom-2 left-0 rounded-md border border-ink-950/10 bg-white px-4 py-3 shadow-soft sm:left-2"><p className="text-xs text-ink-500">Learning rhythm</p><p className="mt-1 font-bold"><span className="text-sun-500">●</span> 3 day streak</p></div>
+          <div className="absolute right-0 bottom-10 rounded-md border border-ink-950/10 bg-ink-950 px-4 py-3 text-paper shadow-soft"><p className="text-xs text-paper/55">Next lesson</p><p className="mt-1 text-sm font-bold">Completing the square</p></div>
+          <div className="absolute top-0 right-2 rounded-md bg-sun-500 px-3 py-2 text-xs font-extrabold text-ink-950 sm:right-0">+20 XP</div>
         </div>
       </Container>
-    </Section>
+    </section>
 
-    <footer className="bg-paper py-8"><Container className="flex flex-col justify-between gap-3 text-sm text-ink-500 sm:flex-row"><p>© {new Date().getFullYear()} Learning Minds.</p><p>Made for learning, built to last.</p></Container></footer>
+    <section id="explore" className="bg-ink-950 py-18 text-paper sm:py-24"><Container><div className="mb-12 grid gap-5 lg:grid-cols-2 lg:items-end"><div><p className="text-sm font-bold text-sun-500">Two modes. One connected journey.</p><h2 className="mt-3 max-w-2xl font-display text-4xl leading-tight sm:text-5xl">Focus when it matters. Explore when curiosity leads.</h2></div><p className="max-w-lg leading-7 text-paper/60 lg:justify-self-end">Move naturally between exam-ready revision and interactive learning without losing sight of the bigger picture.</p></div><div className="grid overflow-hidden rounded-lg border border-paper/15 lg:grid-cols-2">
+        <article className="border-b border-paper/15 p-6 sm:p-9 lg:border-r lg:border-b-0"><div className="flex items-center justify-between"><span className="text-sm font-bold text-sun-500">REVISE</span><span className="text-xs text-paper/45">Calm · Focused · Exam-ready</span></div><h3 className="mt-7 text-2xl font-bold">Make every review count.</h3><div className="mt-7 rounded-md bg-paper p-5 text-ink-950"><p className="text-xs font-bold text-violet-500">MATHEMATICS · NOTE 04</p><p className="mt-3 font-semibold">A turning point occurs where the gradient is equal to zero.</p><div className="mt-5 flex items-center justify-between border-t border-ink-950/10 pt-4 text-xs"><span>Mastery</span><strong>72%</strong></div><div className="mt-2 h-1.5 rounded-full bg-leaf-100"><div className="h-full w-[72%] rounded-full bg-violet-500" /></div></div></article>
+        <article className="diagram-grid-inverse p-6 sm:p-9"><div className="flex items-center justify-between"><span className="text-sm font-bold text-sun-500">LEARN</span><span className="text-xs text-paper/45">Interactive · Adaptive · Rewarding</span></div><h3 className="mt-7 text-2xl font-bold">See knowledge connect.</h3><div className="relative mt-4"><LearningPath variant="dark" className="w-full"/><div className="absolute right-2 bottom-4 rounded-md border border-paper/15 bg-ink-950 px-3 py-2 text-xs"><span className="text-sun-500">Challenge</span> · Graph the curve</div></div></article>
+      </div></Container></section>
+    <footer className="bg-paper py-8"><Container className="flex flex-col justify-between gap-3 text-sm text-ink-500 sm:flex-row"><Wordmark /><p>© {new Date().getFullYear()} Learning Minds. Made for curious minds.</p></Container></footer>
   </main>;
 }
