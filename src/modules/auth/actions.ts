@@ -18,8 +18,8 @@ export async function signupAction(_: AuthActionState, formData: FormData): Prom
   const values = { email: String(formData.get("email") ?? "").trim(), password: String(formData.get("password") ?? ""), confirmPassword: String(formData.get("confirmPassword") ?? "") };
   const errors = validateSignup(values); if (Object.keys(errors).length) return { status: "error", errors };
   try {
-    const client = await createSupabaseServerClient(); const { appUrl } = getPublicEnvironment();
-    const { data, error } = await client.auth.signUp({ email: values.email, password: values.password, options: { emailRedirectTo: `${appUrl}/auth/callback` } });
+    const client = await createSupabaseServerClient(); const { siteUrl } = getPublicEnvironment();
+    const { data, error } = await client.auth.signUp({ email: values.email, password: values.password, options: { emailRedirectTo: `${siteUrl}/auth/callback` } });
     if (error) return { status: "error", message: friendlyMessage(error.message) };
     if (!data.session) return { status: "confirmation", message: "Check your inbox to confirm your email, then return to log in." };
   } catch { return { status: "error", message: "Learning Minds is not connected yet. Ask the project owner to check the Supabase configuration." }; }
