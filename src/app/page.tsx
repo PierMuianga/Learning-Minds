@@ -10,7 +10,7 @@ export default function Home() {
   return <main className="overflow-hidden">
     <header className="border-b border-ink-950/10 bg-paper/80">
       <Container className="flex h-18 items-center justify-between">
-        <a href="#top" className="font-display text-2xl font-semibold tracking-tight">Lumena<span className="text-coral-500">.</span></a>
+        <a href="#top" className="font-display text-2xl font-semibold tracking-tight">Learning Minds<span className="text-coral-500">.</span></a>
         <nav aria-label="Primary navigation" className="flex items-center gap-1 sm:gap-3">
           <Button href="/login" variant="quiet" className="hidden sm:inline-flex">Log in</Button>
           <Button href="/signup">Start learning</Button>
@@ -29,13 +29,13 @@ export default function Home() {
             <Button href="/signup" className="sm:min-w-38">Start learning</Button>
             <Button href="#preview" variant="secondary" className="sm:min-w-38">See the preview</Button>
           </div>
-          <p className="mt-5 text-sm text-ink-500">Foundation preview · No account required yet</p>
+          <p className="mt-5 text-sm text-ink-500">A personal learning space, shaped around you.</p>
         </div>
 
         <Surface className="relative p-4 sm:p-6" aria-label="Product preview">
           <div className="mb-6 flex items-center justify-between border-b border-ink-950/10 pb-4">
-            <div><p className="text-xs font-bold tracking-wider text-ink-500 uppercase">Today</p><p className="mt-1 font-display text-2xl font-semibold">Good afternoon, Amara</p></div>
-            <div className="grid size-10 place-items-center rounded-full bg-sun-100 font-bold text-ink-950" aria-hidden>A</div>
+            <div><p className="text-xs font-bold tracking-wider text-ink-500 uppercase">A space of your own</p><p className="mt-1 font-display text-2xl font-semibold">Learning with direction</p></div>
+            <div className="grid size-10 place-items-center rounded-full bg-sun-100 font-bold text-ink-950" aria-hidden>LM</div>
           </div>
           <div className="grid gap-3">
             {subjects.map((subject, index) => <div key={subject.name} className="grid grid-cols-[auto_1fr] gap-4 rounded-md border border-ink-950/10 bg-white p-4">
@@ -57,6 +57,6 @@ export default function Home() {
       </Container>
     </Section>
 
-    <footer className="bg-paper py-8"><Container className="flex flex-col justify-between gap-3 text-sm text-ink-500 sm:flex-row"><p>© {new Date().getFullYear()} Lumena. Foundation preview.</p><p>Made for learning, built to last.</p></Container></footer>
+    <footer className="bg-paper py-8"><Container className="flex flex-col justify-between gap-3 text-sm text-ink-500 sm:flex-row"><p>© {new Date().getFullYear()} Learning Minds.</p><p>Made for learning, built to last.</p></Container></footer>
   </main>;
 }

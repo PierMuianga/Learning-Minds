@@ -1,0 +1,3 @@
+import { describe, expect, it } from "vitest"; import { validateOnboarding } from "./validation"; import type { OnboardingState } from "./types";
+const valid: OnboardingState = { role: "student", displayName: "Mia", preferredLanguage: "en", country: "MZ", curriculumId: "moz-national", gradeId: "mz-10", subjectIds: ["mathematics"], learningGoalMinutes: 20 };
+describe("onboarding validation", () => { it("accepts stable catalogue IDs", () => expect(validateOnboarding(valid)).toEqual([])); it("requires role and compatible level", () => expect(validateOnboarding({ ...valid, role: null, gradeId: "cam-igcse" })).toHaveLength(2)); it("requires subjects", () => expect(validateOnboarding({ ...valid, subjectIds: [] })).toContain("Choose at least one subject.")); });

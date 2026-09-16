@@ -1,2 +1,5 @@
-import { PlaceholderPage } from "@/components/foundation/placeholder-page";
-export default function SignupPage() { return <PlaceholderPage eyebrow="Get started" title="Accounts are coming soon." description="The foundation is ready; secure account creation belongs to the next phase." />; }
+import { redirect } from "next/navigation";
+import { AuthFrame } from "@/components/auth/auth-frame"; import { AuthForm } from "@/components/auth/auth-form";
+import { getViewer } from "@/modules/auth/repository"; import { destinationFor } from "@/modules/auth/routing";
+export const metadata = { title: "Create account" };
+export default async function SignupPage() { const { user, profile } = await getViewer(); if (user) redirect(destinationFor(profile)); return <AuthFrame><AuthForm mode="signup" /></AuthFrame>; }
