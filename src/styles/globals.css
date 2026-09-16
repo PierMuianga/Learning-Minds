@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+
+  --color-ink-950: #152820;
+  --color-ink-700: #40534a;
+  --color-ink-500: #6f7e76;
+  --color-paper: #fbfaf5;
+  --color-canvas: #f4f1e8;
+  --color-leaf-700: #245d45;
+  --color-leaf-600: #2e7657;
+  --color-leaf-100: #dcecdf;
+  --color-sun-500: #f0b844;
+  --color-sun-100: #faebbd;
+  --color-sky-500: #4f8fa8;
+  --color-coral-500: #df745f;
+  --color-violet-500: #7a6bb1;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
+  --shadow-soft: 0 12px 40px rgb(21 40 32 / 0.08);
+  --shadow-lifted: 0 20px 60px rgb(21 40 32 / 0.13);
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+}
+
+:root {
+  --font-body: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --font-heading: Iowan Old Style, Baskerville, "Times New Roman", serif;
+  --surface-page: #f4f1e8;
+  --surface-raised: #fbfaf5;
+  --surface-inverse: #152820;
+  --border-subtle: rgb(21 40 32 / 0.14);
+  --subject-mathematics: #4f8fa8;
+  --subject-science: #2e7657;
+  --subject-languages: #df745f;
+  --subject-humanities: #7a6bb1;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--color-ink-950);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--color-sun-100); }
+:focus-visible { outline: 3px solid var(--color-sky-500); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+}
