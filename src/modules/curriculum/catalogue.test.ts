@@ -1,0 +1,2 @@
+import {describe,expect,it} from "vitest";import {units,topics,objectives,curriculum} from "./catalogue";
+describe("curriculum hierarchy",()=>{it("connects every topic and objective",()=>{expect(curriculum.scope).toContain("demo subset");expect(topics).toHaveLength(6);for(const unit of units)for(const topic of unit.topics){expect(topic.unitId).toBe(unit.id);for(const o of topic.objectives)expect(o.topicId).toBe(topic.id)}expect(objectives.length).toBeGreaterThan(10)})});

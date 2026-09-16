@@ -1,0 +1,2 @@
+import { SubjectHeader } from "@/components/app/subject-header";import { ProgressView } from "@/components/assessment/progress-view";
+export default function ProgressPage(){return <><SubjectHeader title="Strengths & weaknesses" description="A transparent projection from your recent answers—not a fixed judgement of your ability."/><div className="mx-auto max-w-6xl px-5 py-10 sm:px-9 lg:px-12"><ProgressView/></div></>}
