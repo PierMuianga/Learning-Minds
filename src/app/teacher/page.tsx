@@ -1,2 +1,3 @@
-import { PlaceholderPage } from "@/components/foundation/placeholder-page";
-export default function TeacherPage() { return <PlaceholderPage eyebrow="Teacher space" title="Guide learning with confidence." description="Classrooms and teacher tools are intentionally reserved for a future phase." />; }
+import { redirect } from "next/navigation"; import { AppShell } from "@/components/app/app-shell"; import { TeacherHome } from "@/components/app/teacher-home"; import { getViewer } from "@/modules/auth/repository"; import { destinationFor } from "@/modules/auth/routing"; import { getLearningContext } from "@/modules/onboarding/repository";
+export const metadata = { title: "Teacher overview" };
+export default async function TeacherPage() { const { user, profile } = await getViewer(); if (!user) redirect("/login"); if (!profile?.onboardingCompleted || profile.role !== "teacher") redirect(destinationFor(profile)); const data = await getLearningContext(profile); return <AppShell role="teacher" name={profile.displayName ?? "Teacher"} context={data.curriculum}><TeacherHome data={data}/></AppShell>; }

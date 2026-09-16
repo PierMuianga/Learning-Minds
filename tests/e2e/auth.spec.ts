@@ -1,0 +1,3 @@
+import { expect, test } from "@playwright/test";
+test("signup communicates validation accessibly", async ({ page }) => { await page.goto("/signup"); await page.getByRole("button", { name: "Create account" }).click(); await expect(page.getByText("Enter your email address.")).toBeVisible(); await expect(page.getByText("Confirm your password.")).toBeVisible(); });
+test("login provides the expected return path", async ({ page }) => { await page.goto("/login"); await expect(page.getByRole("heading", { name: "Continue learning." })).toBeVisible(); await expect(page.getByRole("link", { name: "Create an account" })).toHaveAttribute("href", "/signup"); });

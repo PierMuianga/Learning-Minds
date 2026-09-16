@@ -1,2 +1,3 @@
-import { PlaceholderPage } from "@/components/foundation/placeholder-page";
-export default function StudentAppPage() { return <PlaceholderPage eyebrow="Student space" title="Your learning journey starts here." description="The student experience will be built in a future phase. This route is ready for it." />; }
+import { redirect } from "next/navigation"; import { AppShell } from "@/components/app/app-shell"; import { StudentHome } from "@/components/app/student-home"; import { getViewer } from "@/modules/auth/repository"; import { destinationFor } from "@/modules/auth/routing"; import { getLearningContext } from "@/modules/onboarding/repository";
+export const metadata = { title: "Home" };
+export default async function StudentAppPage() { const { user, profile } = await getViewer(); if (!user) redirect("/login"); if (!profile?.onboardingCompleted || profile.role !== "student") redirect(destinationFor(profile)); const data = await getLearningContext(profile); return <AppShell role="student" name={profile.displayName ?? "Learner"} context={`${data.curriculum} · ${data.grade}`}><StudentHome data={data}/></AppShell>; }

@@ -54,6 +54,13 @@ body {
 ::selection { background: var(--color-sun-100); }
 :focus-visible { outline: 3px solid var(--color-sky-500); outline-offset: 3px; }
 
+@keyframes step-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.animate-step-in { animation: step-in 320ms var(--ease-brand) both; }
+.subject-indigo .subject-mark { background: #6867a8; }
+.subject-cyan .subject-mark { background: #4f8fa8; }
+.subject-amber .subject-mark { background: #d29b33; }
+.subject-emerald .subject-mark { background: #2e7657; }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
