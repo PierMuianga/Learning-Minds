@@ -1,6 +1,15 @@
 # Database
 
-Apply `supabase/migrations/202609160001_phase_2_identity.sql` once through the Supabase SQL Editor, or link the CLI (`supabase link --project-ref YOUR_REF`) and run `supabase db push`.
+## Deployment
+
+This repository is connected to Supabase through the official GitHub integration. The `main` branch is the production database branch, and committed migrations deploy in chronological order from `supabase/migrations/`.
+
+For local development, link the Supabase CLI (`supabase link --project-ref YOUR_REF`) and run `supabase db push`. All future schema changes must be added as new, timestamped files in `supabase/migrations/`; do not rewrite migrations that have already deployed. Do not casually edit the production schema through the Supabase dashboard, because manual changes bypass repository history and can make production drift from the declared migrations.
+
+The current migration history is:
+
+1. `202609160001_phase_2_identity.sql`
+2. `202609160002_phase_3_curriculum_assessment.sql`
 
 ## Tables
 
