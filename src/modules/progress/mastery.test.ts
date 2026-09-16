@@ -1,0 +1,2 @@
+import {describe,expect,it} from "vitest";import {calculateMastery,masteryLabel} from "./mastery";
+describe("mastery",()=>{it("returns zero without evidence",()=>expect(calculateMastery([])).toBe(0));it("weights evidence and confidence transparently",()=>{const rows=Array.from({length:5},(_,i)=>({proportion:i?1:0,difficulty:"standard" as const,occurredAt:`2026-09-${String(16-i).padStart(2,"0")}`}));expect(calculateMastery(rows)).toBeGreaterThan(70);expect(masteryLabel(calculateMastery(rows))).toMatch(/Secure|Strong/)})});

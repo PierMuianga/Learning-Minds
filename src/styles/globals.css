@@ -79,3 +79,35 @@ button { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Phase 3 academic experience */
+.filter-label { display:grid; gap:.45rem; font-size:.75rem; font-weight:700; color:var(--color-ink-700); }
+.filter-label select { min-height:2.8rem; border:1px solid rgb(16 46 38/.18); border-radius:.375rem; background:#fffdf8; padding:0 .75rem; color:var(--color-ink-950); font-size:.875rem; }
+.note-prose { max-width:46rem; }
+.note-block { margin:0 0 2.5rem; padding-left:1.25rem; border-left:2px solid rgb(16 46 38/.14); }
+.note-block h2 { margin:.3rem 0 .75rem; font-family:var(--font-heading); font-size:1.75rem; }
+.note-block p:not(.note-label) { line-height:1.8; color:var(--color-ink-700); }
+.note-label { font-size:.68rem; font-weight:800; letter-spacing:.17em; text-transform:uppercase; color:var(--color-leaf-700); }
+.note-worked_example { border-color:var(--color-sky-500); background:rgb(79 143 168/.07); padding:1.4rem; }
+.note-common_mistake { border-color:var(--color-coral-500); }
+.note-exam_tip { border-color:var(--color-sun-500); }
+.note-checkpoint { border:1px solid rgb(16 46 38/.16); border-left:4px solid var(--color-leaf-700); padding:1.5rem; }
+.math-line { margin-top:.8rem; overflow-wrap:anywhere; font-family:Georgia,serif; font-size:1.35rem; color:var(--color-ink-950); }
+.answer-option { display:flex; min-height:3.5rem; align-items:center; gap:1rem; border:1px solid rgb(16 46 38/.16); border-radius:.75rem; background:var(--color-paper); padding:.9rem 1rem; cursor:pointer; }
+.answer-option:has(input:focus-visible) { outline:3px solid var(--color-sky-500); outline-offset:2px; }
+.answer-option input { accent-color:var(--color-leaf-700); }
+.answer-selected { border-color:var(--color-leaf-700); box-shadow:inset 3px 0 var(--color-leaf-700); }
+.answer-field { width:100%; border:1px solid rgb(16 46 38/.2); border-radius:.75rem; background:var(--color-paper); padding:1rem; font:inherit; }
+.feedback-panel { margin-top:2rem; border-left:4px solid var(--color-leaf-600); background:var(--color-paper); padding:1.5rem; box-shadow:var(--shadow-soft); }
+.feedback-incorrect { border-color:var(--color-coral-500); }.feedback-self_review { border-color:var(--color-sky-500); }
+.feedback-panel dt, .results-hero + section dt, article dt { font-size:.68rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--color-ink-500); }
+.feedback-panel dd, article dd { margin:.3rem 0 0; line-height:1.6; }
+.empty-state { border:1px dashed rgb(16 46 38/.25); padding:2.5rem; }
+.mastery-line { height:3px; background:rgb(16 46 38/.1); }.mastery-line span { display:block; height:100%; background:var(--color-sky-500); }
+.form-legend,.section-title { margin-bottom:1rem; font-family:var(--font-heading); font-size:1.65rem; }
+.check-row { display:flex; min-height:3rem; align-items:center; gap:.65rem; border:1px solid rgb(16 46 38/.15); border-radius:.375rem; background:var(--color-paper); padding:.65rem .8rem; font-size:.9rem; font-weight:600; }
+.check-row input { accent-color:var(--color-leaf-700); }
+.exam-button { min-height:2.8rem; border:1px solid rgb(16 46 38/.18); border-radius:.375rem; padding:.6rem 1rem; font-weight:700; }.exam-button:disabled{opacity:.35}.exam-primary{background:var(--color-ink-950);color:var(--color-paper)}
+.nav-number { aspect-ratio:1; border:1px solid rgb(16 46 38/.18); border-radius:.375rem; background:var(--color-paper); font-weight:700; }.nav-answered{background:var(--color-leaf-100)}.nav-current{outline:3px solid var(--color-sky-500);outline-offset:2px}
+.results-hero { background:var(--color-ink-950); color:var(--color-paper); padding:2rem; }
+@media (max-width: 420px) { .note-block { padding-left:.9rem; }.note-worked_example,.note-checkpoint{padding:1rem}.results-hero{padding:1.5rem}.answer-option{padding:.75rem}.nav-number{font-size:.75rem} }
